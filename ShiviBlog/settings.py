@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['vercel.app', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'article.apps.ArticleConfig',
+    'article.apps.ArticleConfig',    #
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ShiviBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],               #
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'article.views.categories',
             ],
         },
     },
@@ -117,6 +118,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [BASE_DIR / 'static']  #
+
+MEDIA_URL = '/media/'      #
+
+MEDIA_ROOT = 'static/media/'       #
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
